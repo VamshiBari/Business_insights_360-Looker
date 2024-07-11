@@ -1,19 +1,19 @@
 # Business_insights_360-Looker
 
-Project Overview: 
+Project Overview:
 
 AtliQ Hardware is a hardware manufacturing company which is selling many types of hardware products to multiple customers in different countries and regions. As a rapidly growing company, AtliQ Hardware was facing the challenge of efficiently collecting and analyzing data from diverse sources such as SQL databases, Excel sheets, and CSV files.
 These hurdles were potentially impeding their ability to make informed business decisions for sustained expansion and take timely corrective actions.
 Task - Develop an interactive report providing invaluable insights across finance, sales, marketing, supply chain, and executive teams, using the provided mock-up dashboards as a reference.
 
-📋 Project Execution: 
+📋 Project Execution:
 
 The project execution had multiple steps:
 🔸 Connecting Snowflake with Looker
 
 🔸 Data validation and Data Transformation
 
-🔸 Creating a LookML project and configuring with Git. 
+🔸 Creating a LookML project and configuring with Git.
 
 🔸 Data Modelling
 
