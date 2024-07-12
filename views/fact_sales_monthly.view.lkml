@@ -2,6 +2,7 @@ view: fact_sales_monthly {
   sql_table_name: "GDB0041"."FACT_SALES_MONTHLY" ;;
 
   dimension: customer_code {
+    primary_key: yes
     type: number
     sql: ${TABLE}."CUSTOMER_CODE" ;;
   }
