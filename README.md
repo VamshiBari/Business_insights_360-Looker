@@ -9,7 +9,8 @@ Task - Develop an interactive report providing invaluable insights across financ
 📋 Project Execution:
 
 The project execution had multiple steps:
-🔸 Connecting Snowflake with Looker
+
+🔸 Connecting Looker with various Databases and Datawarehouses like MySQL,Snowflake and BigQuery to collect data.
 
 🔸 Data validation and Data Transformation
 
