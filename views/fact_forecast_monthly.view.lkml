@@ -16,7 +16,7 @@ view: fact_forecast_monthly {
     type: number
     sql: ${TABLE}."FISCAL_YEAR" ;;
   }
-  dimension: forecast_quantity {
+  dimension: Qty{
     type: number
     sql: ${TABLE}."FORECAST_QUANTITY" ;;
   }

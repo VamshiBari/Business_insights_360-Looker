@@ -29,6 +29,7 @@ explore: fact_post_invoice_deductions {}
 explore: fact_pre_invoice_deductions {}
 
 explore: fact_sales_monthly {
+
   label: "fact_actualEstimates"
   join: fact_forecast_monthly {
     type: left_outer

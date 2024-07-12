@@ -17,7 +17,7 @@ view: fact_sales_monthly {
     type: string
     sql: ${TABLE}."PRODUCT_CODE" ;;
   }
-  dimension: sold_quantity {
+  dimension: Qty {
     type: number
     sql: ${TABLE}."SOLD_QUANTITY" ;;
   }
