@@ -12,6 +12,8 @@ persist_with: business_insights_360_default_datagroup
 
 explore: dim_customer {}
 
+explore: dim_date {}
+
 explore: dim_product {}
 
 explore: fact_forecast_monthly {}
