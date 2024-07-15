@@ -21,7 +21,7 @@ view: fact_forecast_monthly {
     sql: ${TABLE}."FORECAST_QUANTITY" ;;
   }
   dimension: product_code {
-    type: string
+    type: number
     sql: ${TABLE}."PRODUCT_CODE" ;;
   }
   measure: count {
