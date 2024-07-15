@@ -4,6 +4,7 @@ view: fact_forecast_monthly {
   dimension: customer_code {
     type: number
     sql: ${TABLE}."CUSTOMER_CODE" ;;
+    value_format: "0"
   }
   dimension_group: date {
     type: time
@@ -16,9 +17,10 @@ view: fact_forecast_monthly {
     type: number
     sql: ${TABLE}."FISCAL_YEAR" ;;
   }
-  dimension: Qty{
+
+  dimension: Qty {
     type: number
-    sql: ${TABLE}."FORECAST_QUANTITY" ;;
+    sql: ${TABLE}."Qty" ;;
   }
   dimension: product_code {
     type: number

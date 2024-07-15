@@ -3,6 +3,7 @@ connection: "business_insights_360"
 # include all the views
 include: "/views/**/*.view.lkml"
 
+
 datagroup: business_insights_360_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -22,16 +23,16 @@ explore: fact_forecast_monthly {
   relationship: many_to_one
   sql_on: ${fact_forecast_monthly.customer_code}= ${dim_customer.customer_code};;
   }
-
-  join: dim_product {
+ join: dim_product {
     type: left_outer
     relationship: many_to_one
     sql_on: ${fact_forecast_monthly.product_code}=${dim_product.product_code} ;;
   }
-  join: fact_gross_price {
+  join:fact_gross_price {
     type:  left_outer
     relationship: many_to_one
     sql_on:  ${fact_forecast_monthly.product_code}= ${fact_gross_price.product_code};;
+
   }
   join: fact_pre_invoice_deductions {
     type: left_outer
@@ -44,18 +45,14 @@ explore: fact_forecast_monthly {
     relationship: many_to_one
     sql_on: ${fact_forecast_monthly.customer_code}= ${fact_post_invoice_deductions.customer_code};;
     }
+
 }
 explore: fact_freight_cost {}
 
-explore: fact_gross_price {}
 
 explore: fact_manufacturing_cost {}
 
 explore: fact_post_invoice_deductions {}
 
-explore: fact_pre_invoice_deductions {}
 
 explore: fact_sales_monthly {}
-
-
-

@@ -13,6 +13,17 @@ view: fact_pre_invoice_deductions {
     type: number
     sql: ${TABLE}."PRE_INVOICE_DISCOUNT_PCT" ;;
   }
+  measure: pre_invoice_discount_amount {
+    type:number
+    sql: ${fact_gross_price.gross_sales_price}* ${pre_invoice_discount_pct} ;;
+  }
+
+measure: net_preinvoice_sales_amount {
+  type: number
+  sql: ${fact_gross_price.gross_sales_price} - ${pre_invoice_discount_amount} ;;
+  value_format: "$0.00"
+}
+
   measure: count {
     type: count
   }

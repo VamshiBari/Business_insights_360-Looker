@@ -13,6 +13,11 @@ view: fact_gross_price {
     type: string
     sql: ${TABLE}."PRODUCT_CODE" ;;
   }
+  measure: gross_sales_price {
+    type: number
+    sql: ${fact_forecast_monthly.Qty}*${gross_price};;
+    }
+
   measure: count {
     type: count
   }
