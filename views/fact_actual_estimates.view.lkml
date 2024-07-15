@@ -31,4 +31,10 @@ view: fact_actual_estimates {
       description: ""
       type: number
     }
+
+    measure: gross_price_amount {
+      type: number
+      sql: ${gross_price}*${Qty} ;;
+      value_format:"$#.00"
+    }
   }
