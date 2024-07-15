@@ -37,7 +37,7 @@ view: fact_actuals_estimates {
       description: ""
       type: number
     }
-    dimension: gross_sales_price {
+    measure: gross_sales_price {
       description: ""
       type: number
     }
@@ -49,7 +49,7 @@ view: fact_actuals_estimates {
       description: ""
       type: number
     }
-    dimension: net_preinvoice_sales_amount {
+    measure: net_preinvoice_sales_amount {
       description: ""
       value_format: "$0.00"
       type: number
