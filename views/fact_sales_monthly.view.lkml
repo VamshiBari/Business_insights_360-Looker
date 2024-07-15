@@ -21,6 +21,12 @@ view: fact_sales_monthly {
     type: number
     sql: ${TABLE}."SOLD_QUANTITY" ;;
   }
+
+  dimension: fiscal_year {
+    type: date_year
+    sql:  DATEADD(month, 4 ,To_DATE ${fact_sales_monthly.date_date} ;;
+  }
+
   measure: count {
     type: count
   }
