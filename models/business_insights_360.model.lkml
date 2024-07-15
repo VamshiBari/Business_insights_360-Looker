@@ -30,10 +30,18 @@ explore: fact_pre_invoice_deductions {}
 
 explore: fact_sales_monthly {
 
-  label: "fact_actualEstimates"
+
   join: fact_forecast_monthly {
     type: left_outer
     relationship: many_to_one
     sql_on: ${fact_sales_monthly.customer_code}= ${fact_forecast_monthly.customer_code} ;;
   }
+
+join: fact_gross_price {
+  type: left_outer
+  relationship: many_to_one
+  sql_on: ${fact_sales_monthly.product_code}= ${fact_gross_price.product_code} ;;
 }
+}
+
+explore: fact_actual_estimates {}
