@@ -16,8 +16,35 @@ explore: dim_date {}
 
 explore: dim_product {}
 
-explore: fact_forecast_monthly {}
+explore: fact_forecast_monthly {
+  join: dim_customer{
+     type: left_outer
+  relationship: many_to_one
+  sql_on: ${fact_forecast_monthly.customer_code}= ${dim_customer.customer_code};;
+  }
 
+  join: dim_product {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast_monthly.product_code}=${dim_product.product_code} ;;
+  }
+  join: fact_gross_price {
+    type:  left_outer
+    relationship: many_to_one
+    sql_on:  ${fact_forecast_monthly.product_code}= ${fact_gross_price.product_code};;
+  }
+  join: fact_pre_invoice_deductions {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast_monthly.customer_code} = ${fact_pre_invoice_deductions.customer_code} ;;
+  }
+
+  join: fact_post_invoice_deductions {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast_monthly.customer_code}= ${fact_post_invoice_deductions.customer_code};;
+    }
+}
 explore: fact_freight_cost {}
 
 explore: fact_gross_price {}
@@ -28,20 +55,7 @@ explore: fact_post_invoice_deductions {}
 
 explore: fact_pre_invoice_deductions {}
 
-explore: fact_sales_monthly {
+explore: fact_sales_monthly {}
 
 
-  join: fact_forecast_monthly {
-    type: left_outer
-    relationship: many_to_one
-    sql_on: ${fact_sales_monthly.customer_code}= ${fact_forecast_monthly.customer_code} ;;
-  }
 
-join: fact_gross_price {
-  type: left_outer
-  relationship: many_to_one
-  sql_on: ${fact_sales_monthly.product_code}= ${fact_gross_price.product_code} ;;
-}
-}
-
-explore: fact_actual_estimates {}
