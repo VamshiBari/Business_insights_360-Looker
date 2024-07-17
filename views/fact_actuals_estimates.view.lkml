@@ -12,6 +12,7 @@ view: fact_actuals_estimates {
         column: pre_invoice_discount_amount { field: fact_pre_invoice_deductions.pre_invoice_discount_amount }
         column: net_preinvoice_sales_amount { field: fact_pre_invoice_deductions.net_preinvoice_sales_amount }
     }
+    datagroup_trigger: business_insights_360_default_datagroup
   }
     dimension: date_date {
       description: ""
