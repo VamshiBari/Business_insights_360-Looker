@@ -20,7 +20,7 @@ view: fact_forecast_monthly {
 
   dimension: Qty {
     type: number
-    sql: ${TABLE}."Qty" ;;
+    sql:  ${TABLE}. "Qty";;
   }
   dimension: product_code {
     type: number

@@ -49,7 +49,7 @@ explore: fact_forecast_monthly {
 }
 explore: fact_freight_cost {}
 
-explore: fact_actuals_estimates {}
+
 explore: fact_manufacturing_cost {}
 
 explore: fact_post_invoice_deductions {}
