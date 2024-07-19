@@ -5,7 +5,7 @@ include: "/views/**/*.view.lkml"
 
 
 datagroup: business_insights_360_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+   #sql_trigger: SELECT MAX(date) FROM fact_forecast_monthly ;;
   max_cache_age: "1 hour"
 }
 
