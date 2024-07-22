@@ -43,6 +43,14 @@ view: fact_forecast_monthly {
     type: number
     sql: ${qty}*${fact_gross_price.gross_price} ;;
   }
+  measure: pre_invoice_disount_amount {
+    type: number
+    sql: ${gross_sales_amount}*${fact_pre_invoice_deductions.pre_invoice_discount_pct} ;;
+  }
+  measure: net_invoice_sales_amount {
+    type: number
+    sql: ${gross_sales_amount} - ${pre_invoice_disount_amount} ;;
+  }
   measure: count {
     type: count
   }
