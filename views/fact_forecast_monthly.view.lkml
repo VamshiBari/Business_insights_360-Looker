@@ -17,9 +17,6 @@ view: fact_forecast_monthly {
     sql: ${TABLE}."CUSTOMER_CODE" ;;
     value_format: "0"
   }
-
-
-
   dimension_group: date {
     type: time
     timeframes: [raw, date, week, month, quarter, year]
@@ -41,6 +38,10 @@ view: fact_forecast_monthly {
   dimension: qty {
     type: number
     sql: ${TABLE}."QTY" ;;
+  }
+  measure: gross_sales_amount {
+    type: number
+    sql: ${qty}*${fact_gross_price.gross_price} ;;
   }
   measure: count {
     type: count

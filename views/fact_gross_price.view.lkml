@@ -26,12 +26,6 @@ view: fact_gross_price {
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  measure: total_gross_price {
-    type: sum
-    sql: ${gross_price} ;;  }
-  measure: average_gross_price {
-    type: average
-    sql: ${gross_price} ;;  }
 
   dimension: product_code {
     primary_key: yes
