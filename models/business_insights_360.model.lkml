@@ -54,3 +54,4 @@ explore: fact_post_invoice_deductions {}
 explore: fact_pre_invoice_deductions {}
 
 explore: fact_sales_monthly {}
+explore: fact_actuals_estimates {}
