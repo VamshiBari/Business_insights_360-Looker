@@ -15,6 +15,8 @@ view: fact_actuals_estimates {
       column: pre_invoice_disount_amount {}
       column: net_invoice_sales_amount {}
     }
+
+    persist_for: "24 hours"
   }
   dimension: date_date {
     description: ""

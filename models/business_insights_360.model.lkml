@@ -54,4 +54,6 @@ explore: fact_post_invoice_deductions {}
 explore: fact_pre_invoice_deductions {}
 
 explore: fact_sales_monthly {}
-explore: fact_actuals_estimates {}
+explore: fact_actuals_estimates {
+  persist_with: business_insights_360_default_datagroup
+}
