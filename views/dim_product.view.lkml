@@ -14,7 +14,8 @@ view: dim_product {
     sql: ${TABLE}."PRODUCT" ;;
   }
   dimension: product_code {
-    type: string
+    primary_key: yes
+    type: number
     sql: ${TABLE}."PRODUCT_CODE" ;;
   }
   dimension: segment {

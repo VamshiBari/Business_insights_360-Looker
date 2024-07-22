@@ -2,6 +2,7 @@ view: fact_freight_cost {
   sql_table_name: "GDB0041"."FACT_FREIGHT_COST" ;;
 
   dimension: fiscal_year {
+    primary_key: yes
     type: number
     sql: ${TABLE}."FISCAL_YEAR" ;;
   }

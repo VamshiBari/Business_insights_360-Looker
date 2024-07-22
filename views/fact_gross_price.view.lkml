@@ -12,6 +12,7 @@ view: fact_gross_price {
     # This dimension will be called "Fiscal Year" in Explore.
 
   dimension: fiscal_year {
+
     type: number
     sql: ${TABLE}."FISCAL_YEAR" ;;
   }

@@ -24,6 +24,7 @@ view: dim_date{
   }
 
   dimension: fiscal_year {
+    primary_key: yes
     type: date_year
     sql:  DATEADD(month, 4 ,To_DATE ${fact_forecast_monthly_date_date}) ;;
   }

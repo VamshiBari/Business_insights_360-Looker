@@ -10,6 +10,7 @@ view: dim_customer {
     sql: ${TABLE}."CUSTOMER" ;;
   }
   dimension: customer_code {
+    primary_key: yes
     type: string
     sql: ${TABLE}."CUSTOMER_CODE" ;;
   }

@@ -12,22 +12,13 @@ view: fact_forecast_monthly {
     # This dimension will be called "Customer Code" in Explore.
 
   dimension: customer_code {
+    primary_key: yes
     type: number
     sql: ${TABLE}."CUSTOMER_CODE" ;;
+    value_format: "0"
   }
 
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  measure: total_customer_code {
-    type: sum
-    sql: ${customer_code} ;;  }
-  measure: average_customer_code {
-    type: average
-    sql: ${customer_code} ;;  }
-  # Dates and timestamps can be represented in Looker using a dimension group of type: time.
-  # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
   dimension_group: date {
     type: time

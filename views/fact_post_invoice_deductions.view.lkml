@@ -2,6 +2,7 @@ view: fact_post_invoice_deductions {
   sql_table_name: "GDB0041"."FACT_POST_INVOICE_DEDUCTIONS" ;;
 
   dimension: customer_code {
+    primary_key: yes
     type: number
     sql: ${TABLE}."CUSTOMER_CODE" ;;
   }
@@ -21,7 +22,9 @@ view: fact_post_invoice_deductions {
     sql: ${TABLE}."OTHER_DEDUCTIONS_PCT" ;;
   }
   dimension: product_code {
-    type: string
+
+
+    type: number
     sql: ${TABLE}."PRODUCT_CODE" ;;
   }
   measure: count {
