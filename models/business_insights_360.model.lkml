@@ -55,5 +55,9 @@ explore: fact_pre_invoice_deductions {}
 
 explore: fact_sales_monthly {}
 explore: fact_actuals_estimates {
-  persist_with: business_insights_360_default_datagroup
+  join: fact_post_invoice_deductions {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_actuals_estimates.customer_code} =  ${fact_post_invoice_deductions.customer_code};;
+  }
 }

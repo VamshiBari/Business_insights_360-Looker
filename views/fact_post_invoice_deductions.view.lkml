@@ -22,9 +22,7 @@ view: fact_post_invoice_deductions {
     sql: ${TABLE}."OTHER_DEDUCTIONS_PCT" ;;
   }
   dimension: product_code {
-
-
-    type: number
+     type: string
     sql: ${TABLE}."PRODUCT_CODE" ;;
   }
   measure: count {

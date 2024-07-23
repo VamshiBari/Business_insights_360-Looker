@@ -14,6 +14,7 @@ view: fact_actuals_estimates {
       column: pre_invoice_discount_pct { field: fact_pre_invoice_deductions.pre_invoice_discount_pct }
       column: pre_invoice_disount_amount {}
       column: net_invoice_sales_amount {}
+      column: product_code {field: dim_product.product_code}
     }
 
     persist_for: "24 hours"
@@ -58,5 +59,8 @@ view: fact_actuals_estimates {
   dimension: net_invoice_sales_amount {
     description: ""
     type: number
+  }
+  dimension: product_code {
+    type: string
   }
 }
