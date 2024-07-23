@@ -14,7 +14,7 @@ view: fact_post_invoice_deductions {
     sql: ${TABLE}."DATE" ;;
   }
   dimension: discounts_pct {
-    type: number
+    type:number
     sql: ${TABLE}."DISCOUNTS_PCT" ;;
   }
   dimension: other_deductions_pct {

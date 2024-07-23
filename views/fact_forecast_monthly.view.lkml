@@ -51,6 +51,11 @@ view: fact_forecast_monthly {
     type: number
     sql: ${gross_sales_amount} - ${pre_invoice_disount_amount} ;;
   }
+
+  measure: net_sales {
+    type: number
+    sql: ${net_invoice_sales_amount}- (${net_invoice_sales_amount}*${fact_post_invoice_deductions.discounts_pct} - ${net_invoice_sales_amount}*${fact_post_invoice_deductions.other_deductions_pct});;
+  }
   measure: count {
     type: count
   }
