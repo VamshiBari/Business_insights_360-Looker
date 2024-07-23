@@ -60,4 +60,14 @@ explore: fact_actuals_estimates {
     relationship: many_to_one
     sql_on: ${fact_actuals_estimates.customer_code} =  ${fact_post_invoice_deductions.customer_code};;
   }
+  join: fact_manufacturing_cost {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_actuals_estimates.product_code} = ${fact_manufacturing_cost.product_code} ;;
+  }
+  join: fact_freight_cost {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_actuals_estimates.fiscal_year} = ${fact_freight_cost.fiscal_year} ;;
+  }
 }
