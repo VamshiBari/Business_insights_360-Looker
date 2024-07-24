@@ -6,6 +6,7 @@ include: "/views/**/*.view.lkml"
 
 datagroup: business_insights_360_default_datagroup {
    #sql_trigger: SELECT MAX(date) FROM fact_forecast_monthly ;;
+  interval_trigger: "24 hours"
   max_cache_age: "1 hour"
 }
 
@@ -69,5 +70,29 @@ explore: fact_actuals_estimates {
     type: left_outer
     relationship: many_to_one
     sql_on: ${fact_actuals_estimates.fiscal_year} = ${fact_freight_cost.fiscal_year} ;;
+  }
+}
+
+explore: +fact_forecast_monthly {
+  aggregate_table: rollup__date_date__dim_customer_customer__dim_customer_customer_code__dim_product_product_code__fact_gross_price_gross_price__fact_post_invoice_deductions_discounts_pct__fact_post_invoice_deductions_other_deductions_pct__fact_pre_in {
+    query: {
+      dimensions: [
+        date_date,
+        dim_customer.customer,
+        dim_customer.customer_code,
+        dim_product.product_code,
+        fact_gross_price.gross_price,
+        fact_post_invoice_deductions.discounts_pct,
+        fact_post_invoice_deductions.other_deductions_pct,
+        fact_pre_invoice_deductions.pre_invoice_discount_pct,
+        qty
+      ]
+      measures: [gross_sales_amount, net_invoice_sales_amount, net_sales]
+      timezone: "Asia/Calcutta"
+    }
+
+    materialization: {
+      datagroup_trigger: business_insights_360_default_datagroup
+    }
   }
 }
