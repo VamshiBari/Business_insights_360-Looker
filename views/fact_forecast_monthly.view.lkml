@@ -39,35 +39,33 @@ view: fact_forecast_monthly {
     type: number
     sql: ${TABLE}."QTY" ;;
   }
-  measure: gross_sales_amount {
+  dimension: gross_sales_amount {
     type: number
     sql: ${qty}*${fact_gross_price.gross_price} ;;
   }
-  measure: pre_invoice_disount_amount {
+  dimension: pre_invoice_disount_amount {
     type: number
     sql: ${gross_sales_amount}*${fact_pre_invoice_deductions.pre_invoice_discount_pct} ;;
   }
-  measure: net_invoice_sales_amount {
+  dimension: net_invoice_sales_amount {
     type: number
     sql: ${gross_sales_amount} - ${pre_invoice_disount_amount} ;;
     value_format: "0.00"
   }
 
-  measure: net_sales_discount_pct {
+  dimension: net_sales_discount_pct {
     type: number
     sql: ${net_invoice_sales_amount}*${fact_post_invoice_deductions.discounts_pct};;
  value_format: "0.00"
  }
-measure: nect_sales_other_discounts_pct{
+dimension: nect_sales_other_discounts_pct{
   type: number
   sql: ${net_invoice_sales_amount}*${fact_post_invoice_deductions.other_deductions_pct};;
 }
-measure: net_sales {
+dimension: net_sales {
   type: number
   sql: ${net_invoice_sales_amount} - ${net_sales_discount_pct} - ${nect_sales_other_discounts_pct};;
   value_format: "0.0"
 }
-  measure: count {
-    type: count
-  }
+
 }
