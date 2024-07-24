@@ -11,7 +11,7 @@ view: fact_pre_invoice_deductions {
     sql: ${TABLE}."FISCAL_YEAR" ;;
   }
   dimension: pre_invoice_discount_pct {
-    type: number
+    type: string
     sql: ${TABLE}."PRE_INVOICE_DISCOUNT_PCT" ;;
   }
 

@@ -19,7 +19,7 @@ view: fact_actuals_estimates {
       column: other_deductions_pct {field:fact_post_invoice_deductions.other_deductions_pct}
     }
 
-    persist_for: "24 hours"
+  datagroup_trigger:business_insights_360_default_datagroup
   }
   dimension: date_date {
     description: ""
