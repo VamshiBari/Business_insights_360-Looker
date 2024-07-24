@@ -50,12 +50,23 @@ view: fact_forecast_monthly {
   measure: net_invoice_sales_amount {
     type: number
     sql: ${gross_sales_amount} - ${pre_invoice_disount_amount} ;;
+    value_format: "0.00"
   }
 
-  measure: net_sales {
+  measure: net_sales_discount_pct {
     type: number
-    sql: ${net_invoice_sales_amount}- (${net_invoice_sales_amount}*${fact_post_invoice_deductions.discounts_pct} - ${net_invoice_sales_amount}*${fact_post_invoice_deductions.other_deductions_pct});;
-  }
+    sql: ${net_invoice_sales_amount}*${fact_post_invoice_deductions.discounts_pct};;
+ value_format: "0.00"
+ }
+measure: nect_sales_other_discounts_pct{
+  type: number
+  sql: ${net_invoice_sales_amount}*${fact_post_invoice_deductions.other_deductions_pct};;
+}
+measure: net_sales {
+  type: number
+  sql: ${net_invoice_sales_amount} - ${net_sales_discount_pct} - ${nect_sales_other_discounts_pct};;
+  value_format: "0.0"
+}
   measure: count {
     type: count
   }
