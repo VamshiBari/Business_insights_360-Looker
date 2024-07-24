@@ -72,3 +72,6 @@ explore: fact_actuals_estimates {
     sql_on: ${fact_actuals_estimates.fiscal_year} = ${fact_freight_cost.fiscal_year} ;;
   }
 }
+explore: final_fact_actual_estimates {
+  persist_with: business_insights_360_default_datagroup
+}
