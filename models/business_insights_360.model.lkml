@@ -74,6 +74,7 @@ explore: fact_actuals_estimates {
 }
 
 explore: +fact_forecast_monthly {
+  label: "final_fact_actual_estimates"
   aggregate_table: rollup__date_date__dim_customer_customer__dim_customer_customer_code__dim_product_product_code__fact_gross_price_gross_price__fact_post_invoice_deductions_discounts_pct__fact_post_invoice_deductions_other_deductions_pct__fact_pre_in {
     query: {
       dimensions: [
