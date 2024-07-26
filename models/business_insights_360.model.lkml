@@ -44,6 +44,11 @@ join: fact_gross_price {
   relationship: many_to_one
   sql_on: ${fact_forecast_monthly.product_code} = ${fact_gross_price.product_code} ;;
   }
+  join: fact_manufacturing_cost {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fact_forecast_monthly.product_code}.product_code} = ${fact_manufacturing_cost.product_code} ;;
+  }
 }
 
 explore: fact_freight_cost {}
@@ -60,11 +65,6 @@ explore: fact_actuals_estimates {
     type: left_outer
     relationship: many_to_one
     sql_on: ${fact_actuals_estimates.customer_code} =  ${fact_post_invoice_deductions.customer_code};;
-  }
-  join: fact_manufacturing_cost {
-    type: left_outer
-    relationship: many_to_one
-    sql_on: ${fact_actuals_estimates.product_code} = ${fact_manufacturing_cost.product_code} ;;
   }
   join: fact_freight_cost {
     type: left_outer
