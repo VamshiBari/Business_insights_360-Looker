@@ -13,6 +13,8 @@ view: final_fact_actual_estimates {
         column: net_sales {}
         column: discounts_pct { field: fact_post_invoice_deductions.discounts_pct }
         column: other_deductions_pct { field: fact_post_invoice_deductions.other_deductions_pct }
+        column: manufacturing_cost { field: fact_manufacturing_cost.manufacturing_cost }
+
       }
 
       datagroup_trigger:  business_insights_360_default_datagroup
@@ -66,6 +68,15 @@ dimension: other_deductions_pct {
       value_format: "0.0"
       type: number
     }
+dimension: manufacturing_cost {
+  description: ""
+  type: number
+  }
+  dimension: Gross_Margin {
+    type: number
+    value_format_name: usd
+    sql: ${net_sales} - ${manufacturing_cost} ;;
+  }
 
     measure: gross_sales_dollars {
       type: sum
@@ -97,4 +108,22 @@ dimension: other_deductions_pct {
       value_format_name: usd
       sql: ${other_deductions_pct} ;;
     }
+
+  measure: Total_cogs_dollars{
+    type:sum
+    sql: ${manufacturing_cost};;
+    value_format_name: usd
   }
+
+  measure: Gross_Margin_dollars{
+    type: sum
+    sql: ${Gross_Margin} ;;
+    value_format_name: usd
+  }
+
+  measure: Gm_per_unit {
+    type: number
+    sql: ${Gross_Margin_dollars} / NULLIF(${Quantity},0)  ;;
+    value_format_name: usd
+  }
+}
