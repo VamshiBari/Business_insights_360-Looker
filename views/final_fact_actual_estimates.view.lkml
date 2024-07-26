@@ -11,7 +11,10 @@ view: final_fact_actual_estimates {
         column: gross_sales_amount {}
         column: net_invoice_sales_amount {}
         column: net_sales {}
+        column: discounts_pct { field: fact_post_invoice_deductions.discounts_pct }
+        column: other_deductions_pct { field: fact_post_invoice_deductions.other_deductions_pct }
       }
+
       datagroup_trigger:  business_insights_360_default_datagroup
     }
     dimension: date_date {
@@ -49,6 +52,15 @@ view: final_fact_actual_estimates {
       value_format: "0.00"
       type: number
     }
+
+dimension: discounts_pct {
+  description: ""
+  type: number
+}
+dimension: other_deductions_pct {
+  description: ""
+  type: number
+}
     dimension: net_sales {
       description: ""
       value_format: "0.0"
@@ -73,5 +85,16 @@ view: final_fact_actual_estimates {
     measure: Quantity {
       type: sum
       sql: ${qty};;
+      value_format_name: usd
+    }
+    measure: post_discounts_pct_dollars {
+      type: sum
+      value_format_name: usd
+      sql: ${discounts_pct} ;;
+    }
+    measure:other_deductions_pct_dollars  {
+      type: sum
+      value_format_name: usd
+      sql: ${other_deductions_pct} ;;
     }
   }
