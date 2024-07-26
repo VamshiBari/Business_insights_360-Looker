@@ -67,5 +67,9 @@ dimension: net_sales {
   sql: ${net_invoice_sales_amount} - ${net_sales_discount_pct} - ${nect_sales_other_discounts_pct};;
   value_format: "0.0"
 }
-
+measure: gross_sales_dollars{
+  type: sum
+  sql: ${gross_sales_amount}  ;;
+value_format_name:usd}
 }
+

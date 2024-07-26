@@ -54,4 +54,24 @@ view: final_fact_actual_estimates {
       value_format: "0.0"
       type: number
     }
+
+    measure: gross_sales_dollars {
+      type: sum
+      sql: ${gross_sales_amount} ;;
+      value_format_name: usd
+    }
+    measure: net_invoice_sales_amount_dollars {
+      type: sum
+      sql: ${net_invoice_sales_amount} ;;
+      value_format_name: usd
+    }
+    measure: net_sales_dollars {
+      type: sum
+      sql: ${net_sales} ;;
+      value_format_name: usd
+    }
+    measure: Quantity {
+      type: sum
+      sql: ${qty};;
+    }
   }
