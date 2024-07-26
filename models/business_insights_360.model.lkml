@@ -7,7 +7,7 @@ include: "/views/**/*.view.lkml"
 datagroup: business_insights_360_default_datagroup {
    #sql_trigger: SELECT MAX(date) FROM fact_forecast_monthly ;;
   interval_trigger: "24 hours"
-  max_cache_age: "1 hour"
+  max_cache_age: "24 hour"
 }
 
 persist_with: business_insights_360_default_datagroup
